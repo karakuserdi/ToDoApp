@@ -80,7 +80,7 @@ class ToDoDetayViewController: UIViewController {
 //MARK: - PresenterToViewDetayProtocol
 extension ToDoDetayViewController:PresenterToViewDetayProtocol{
     func viewaVeriGonder(yapilacaklarListesi: Array<Yapilacaklar>) {
-        self.yapilacaklarListesi = yapilacaklarListesi
+        self.yapilacaklarListesi = yapilacaklarListesi.sorted(by: {$0.yapilacaklar_id! > $1.yapilacaklar_id!})
         tableView.reloadData()
     }
 }

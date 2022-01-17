@@ -72,8 +72,6 @@ class ToDoDetayInteractor:PresenterToInteractorDetayProtocol{
         } catch {
             print(error.localizedDescription)
         }
-
-
         db?.close()
     }
 

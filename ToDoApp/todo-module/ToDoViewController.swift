@@ -57,7 +57,7 @@ class ToDoViewController: UIViewController {
 //MARK: - PresenterToViewProtocol
 extension ToDoViewController:PresenterToViewProtocol{
     func viewaVeriGonder(liste: Array<Liste>) {
-        listemListesi = liste
+        listemListesi = liste.sorted(by: {$0.liste_id! > $1.liste_id!})
         tableView.reloadData()
     }
 }
@@ -102,6 +102,19 @@ extension ToDoViewController: UITableViewDelegate,UITableViewDataSource{
             let gidilecekVC = segue.destination as! ToDoDetayViewController
             gidilecekVC.liste = listemListesi[index!]
         }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "Listeniz boş"
+        label.textAlignment = .center
+        label.textColor = .systemBlue
+        label.font = .boldSystemFont(ofSize: 15)
+        return label
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return listemListesi.count == 0 ? 100 : 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

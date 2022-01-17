@@ -50,6 +50,8 @@ class ToDoEkleViewController: UIViewController{
         datePicker?.locale = Locale(identifier: "tr")
         datePicker?.preferredDatePickerStyle = .wheels
         datePicker?.datePickerMode = .date
+        
+        
         tarihTextField.inputView = datePicker
         datePicker?.addTarget(self, action: #selector(tarihGoster), for: .valueChanged)
         
