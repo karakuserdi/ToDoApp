@@ -18,7 +18,6 @@ class ToDoCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let a = "A"
         configureUI()
     }
     
